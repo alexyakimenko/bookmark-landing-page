@@ -1,0 +1,98 @@
+.faq {
+  padding: 7.25rem 0;
+  text-align: center;
+
+  &__title {
+
+    @include breakpoint-up(large) {
+      max-width: 34rem;
+      margin: 0 auto;
+    }
+
+    > h2 {
+      text-transform: capitalize;
+    }
+
+    > p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+
+      @include breakpoint-up(large) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__accordion {
+    margin-top: 3rem;
+    text-align: left;
+
+    @include breakpoint-up(large) {
+      max-width: 34rem;
+      margin: 0 auto;
+    }
+
+    .item {
+      border-bottom: 1px solid $gray;
+      padding-top: 1.75rem;
+      padding-bottom: 1.5rem;
+
+      &__headline {
+        font-size: 0.875rem;
+        color: $darkBlue;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 0.75rem;
+          height: 0.75rem;
+          border-bottom: 2px solid $softBlue;
+          border-left: 2px solid $softBlue;
+          transform: rotate(-45deg) translateY(-50%);
+
+          transition: all 300ms ease-in-out;
+        }
+      }
+
+      &__content {
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 300ms ease-in-out;
+
+        &::before {
+          content: "";
+          display: block;
+          height: 2.75rem;
+          width: 100%;
+        }
+      }
+
+      &.open { 
+      
+        .item {
+          &__content {
+            max-height: 100rem;
+            opacity: 1;
+          }
+
+          &__headline {
+            &::after {
+              transform: rotate(135deg);
+              border-color: $softRed;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__cta {
+    margin-top: 2.875rem;
+  }
+}

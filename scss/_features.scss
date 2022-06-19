@@ -1,0 +1,174 @@
+.features {
+  padding: 6.25rem 0;
+  text-align: center;
+
+  &__title {
+    text-align: center;
+
+    @include breakpoint-up(large) {
+      max-width: 34rem;
+      margin: 0 auto;
+    }
+
+    > p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+
+      @include breakpoint-up(large) {
+        font-size: 1rem;
+      }
+    }
+  }  
+
+
+  &__tabs {
+    
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 45rem;
+      margin: 0 auto;
+      margin-top: 4rem;
+    }
+
+    > .tab {
+      position: relative;
+      font-size: 0.875rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $gray;
+      color: $grayishBlue;
+      text-transform: capitalize;
+      padding: 1.25rem 0;
+
+      transition: color 300ms ease-in-out;
+
+
+      &:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 9rem;
+        height: 0.25rem;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        background-color: $softRed;
+
+        transition: transform 300ms ease-in-out;
+
+        @include breakpoint-up(large) {
+          width: 100%;
+        }
+      }
+
+      &.active {
+        color: $darkBlue;
+
+        &:after {
+          transform: translateX(-50%) scale(1);
+        }
+      }
+
+      @include breakpoint-down(medium) {
+        &:first-child {
+          border-top: 1px solid $gray;
+        }
+      }
+    }
+  }
+
+  &__modules {
+    margin-top: 4.5rem;
+    position: relative;
+    height: 26.25rem;
+
+    @include breakpoint-up(large) {
+      margin-top: 4rem;
+    }
+
+    .module {
+      position: absolute;  
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 400ms ease-in, transform 300ms ease-in-out;
+
+      @include breakpoint-up(large) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__image {
+        position: relative;
+        max-width: 20rem;
+        width: 100%;
+        height: 12.5rem;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin: 0 auto;
+
+        @include breakpoint-up(large) {
+          max-width: 33.5rem;
+          height: 21.625rem;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 150%;
+          height: 100%;
+          top: 20%;
+          right: 20%;
+          border-bottom-right-radius: 6.25rem;
+          border-top-left-radius: 6.25rem;
+          background-color: $softBlue;
+          z-index: -1;
+        }
+      }
+
+      &.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      &#bookmarking {
+        .module__image {
+          background-image: url("../img/illustration-features-tab-1.svg");
+        }
+      }
+
+      &#searching {
+        .module__image {
+          background-image: url("../img/illustration-features-tab-2.svg");
+        }
+      }
+
+      &#sharing {
+        .module__image {
+          background-image: url("../img/illustration-features-tab-3.svg");
+        }
+      }
+
+      &__text {
+
+        @include breakpoint-up(large) {
+          max-width: 24rem;
+          text-align: left;
+        }
+        > h2 {
+          margin-top: 5rem;
+        }
+
+        > p {
+          font-size: 0.875rem;
+          line-height: 1.5;
+        }
+      }
+
+      &__cta {
+        text-transform: capitalize;
+      }
+    }
+  }  
+}

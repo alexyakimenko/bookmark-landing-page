@@ -1,0 +1,65 @@
+.footer {
+  background-color: $darkBlue;
+  text-align: center;
+  padding: 2.5rem 0;
+
+  &__nav {
+    flex-direction: column;
+
+    @include breakpoint-up(large) {
+      flex-direction: row;
+    }
+  }
+
+  &__links {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+
+    @include breakpoint-up(large) {
+      display: flex;
+      margin-left: 4rem;
+    }
+
+    &__item {
+      text-align: center;
+      margin-top: 2.25rem;
+
+      a {
+        transition: color 300ms ease-in-out;
+        font-size: 0.875rem;
+        letter-spacing: 0.1rem;
+
+        &:hover {
+          color: $softRed;
+        }
+      }
+
+      @include breakpoint-up(large) {
+        margin: 0;
+        &:not(:first-child) {
+          margin-left: 2.75rem;
+        }
+      }
+    }
+  }
+
+  &__media {
+    margin-top: 3rem;
+    max-width: 5.625rem;
+    width: 100%;
+
+    i {
+      transition: color 300ms ease-in-out;
+
+      &:hover {
+        color: $softRed;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      margin: 0;
+      margin-left: auto;
+    }
+  }
+}

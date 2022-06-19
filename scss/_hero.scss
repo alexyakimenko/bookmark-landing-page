@@ -1,0 +1,85 @@
+.hero {
+  padding: 2.5rem 0;
+  text-align: center;
+
+  @include breakpoint-up(large) {
+    text-align: left;
+    padding: 4.375rem 0;
+  }
+
+  &__wrapper {
+    @include breakpoint-up(large) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__illustration {
+    position: relative;
+    width: 19.4375rem;
+    height: 12.875rem;
+    background-image: url("../img/illustration-hero.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 150%;
+      height: 100%;
+      top: 20%;
+      left: 20%;
+      background: rgba($softBlue, .9);
+      border-bottom-left-radius: 6rem;
+      border-top-right-radius: 6rem;
+      z-index: -1;
+
+      @include breakpoint-up(large) {
+        top: 10%;
+        left: 25%;
+        border-bottom-left-radius: 10rem;
+        border-top-right-radius: 10rem;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      width: 29.75rem;
+      height: 23.75rem;
+    }
+  }
+
+  &__text {
+
+    @include breakpoint-up(large) {
+      max-width: 30.25rem;
+    }
+
+    margin-top: 4rem;
+    line-height: 1.5;
+
+    > h1 {
+      text-transform: capitalize;
+    }
+
+    > p {
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+
+      @include breakpoint-up(large) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__cta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @include breakpoint-up(large) {
+      max-width: 21.5rem;
+    }
+  }
+}

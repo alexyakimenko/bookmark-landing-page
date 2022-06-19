@@ -1,0 +1,200 @@
+html {
+  font-size: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: $rubik;
+  font-weight: 400;
+  position: fixed;
+  overflow-x: hidden;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none; 
+}
+
+a {
+  color: #fff;
+}
+
+button {
+  font-family: $rubik;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ margin: 0;
+ padding: 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+}
+
+h2 {
+  font-size: 1.25rem;
+
+  @include breakpoint-up(large) {
+    font-size: 1.75rem;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+i {
+  font-size: 1.5rem;
+}
+
+// Container
+.container {
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+
+  @include breakpoint-up(medium) {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  @include breakpoint-up(large) {
+    max-width: 960px;
+  }
+
+  @include breakpoint-up(xlarge) {
+    max-width: 1200px; 
+  }
+}
+
+// Flex
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Grid
+.grid {
+  display: grid;
+}
+
+// Visibility
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none !important;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none !important;
+  }
+}
+
+// Button
+.btn {
+  display: inline-block;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: 500;
+  border: 2px solid transparent;
+
+  transition: all 300ms ease-in-out;
+
+  &-p {
+    padding: 0.8rem 2rem;
+  }
+
+  &-px {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &-py {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  &:hover {
+    background-color: #fff;
+  }
+
+  &-red {
+    background-color: $softRed;
+    color: #fff;
+
+    &:hover {
+      border-color: $softRed;
+      color: $softRed;
+    }
+  }
+
+  &-blue {
+    background-color: $softBlue;
+    color: #fff;
+
+    &:hover {
+      border-color: $softBlue;
+      color: $softBlue;
+    }
+  }
+
+  &-grey {
+    background-color: $gray;
+    color: $darkBlue;
+
+    &:hover {
+      border-color: $darkBlue;
+    }
+  }
+
+  
+}
+
+// Noscroll
+@include breakpoint-down(medium) {
+  .noscroll {
+    overflow: hidden;
+  }
+}
+
+// Titles
+.title {
+  &-head {
+    font-weight: 500;
+    color: $darkBlue; 
+  }
+
+  &-sub {
+    color: $grayishBlue;
+    letter-spacing: 0.08rem;
+  }
+}
