@@ -1,7 +1,6 @@
 # Bookmark Landing Page
 
 ![](./screenshots/desktop-screenshot.png)
-![](./screenshots/mobile-screenshot.png)
 
 ### Build with
 - Semantic HTML5 markup
